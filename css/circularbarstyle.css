@@ -1,0 +1,70 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+
+
+
+
+.skill{
+    position: absolute;
+    left: 46%;
+    z-index: 500;
+    width: 160px;
+    height: 160px;
+    
+}
+
+.outer{
+    height: 160px;
+    width: 160px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+     -6px -6px 10px -1px rgba(255,255,255,0.7);
+    border-radius: 50%;
+    padding: 20px;
+
+}
+.inner{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:inset 4px 4px 6px -1px rgba(0,0,0,0.15),
+     inset -4px -4px 6px -1px rgba(255,255,255,1), 0.5px 0.5px 0px rgba(0,0,0,0.15),
+     0px 12px 10px -10px rgba(0,0,0,0.05);
+    border-radius: 50%;
+
+
+}
+
+#number{
+    font-weight: 600;
+    color: rgb(255, 251, 0);
+    font-size: 30px;
+}
+
+circle{
+    fill: none;
+    stroke: rgb(255, 229, 79);
+    stroke-width: 20px;
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    animation: anim 2s linear forwards;
+}
+
+@keyframes anim{
+    100%{
+        stroke-dashoffset: 150;
+    }
+    
+}
+
+
+svg {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}

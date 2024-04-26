@@ -1,0 +1,124 @@
+
+/* style.css FOR POPUP start*/
+.closebutton{
+    position: relative;
+    border-radius: 50%;
+    border: none;
+    text-shadow:0 0 1px red;
+    transform: translate(270px,-115px) scale(2);
+    background-color: transparent;
+ }
+ .reviewsubmit{
+    background-color: #e65123;
+    position: absolute;
+    transform: translate(150%,-2px);
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+ }
+ 
+ .reviewsubmit:hover{
+    cursor: pointer;
+    background-color:#fc744b ;
+ }
+ 
+ .reviewsubmit:active{
+    background-color: #922605;
+ }
+ .card {
+    z-index: 999;
+ position: absolute;
+ top: 0%;
+ transform: translate(-50%,-40%) scale(0);
+ background: #fff;
+ margin: auto;
+ padding: 1rem;
+ box-shadow: 0 0 5px black;
+ width: 100%;
+ border-radius: 0.5rem;
+ visibility: hidden;
+ transition: top 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ 
+ }
+ 
+ .textbox{
+   background-color: transparent;
+    height: 30px;
+    width: 200px;
+    font-size: 10px;
+    padding-left: -10px;
+   transform: translate(0px,0);
+ 
+ }
+ 
+ ::placeholder {
+    
+    font-size: 1em;
+ 
+ 
+    padding: 5px;
+    margin-top: 0px;
+ 
+  }
+ 
+ 
+ .betterfont{
+   text-align: left;
+    font-family: monospace;
+    font-size: 15px;
+    transform: translate(0%,0%);
+    max-width: 200px;
+    ;
+ }
+ 
+ .openpop{
+    opacity: 0.9;
+    top: 30%;
+    transform: translate(-50%,-50%) scale(1.5);
+    width: 300px;
+    
+    visibility: visible;
+    margin: auto;
+ 
+ }
+ 
+ .closepop{
+ top: 0%;
+ transition: top 0.7s, transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ transform: translate(-50%,0%) scale(0);
+ 
+ }
+ .star {
+ font-size: 25px;
+ cursor: pointer;
+ }
+ 
+ .one {
+ color: rgb(255, 0, 0);
+ }
+ 
+ .two {
+ color: rgb(255, 106, 0);
+ }
+ 
+ .three {
+ color: rgb(251, 255, 120);
+ }
+ 
+ .four {
+ color: rgb(255, 255, 0);
+ }
+ 
+ .five {
+ color: rgb(24, 159, 14);
+ }
+ 
+ 
+ /* style.css FOR POPUP END*/
