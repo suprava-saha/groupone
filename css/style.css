@@ -2,7 +2,7 @@
 
 :root{
    --main-color:#000;
-   --orange:#f39c12;
+   --orange:#a81c51;
    --red:#a81c51;
    --black:#000;
    --white:#fff;
@@ -898,7 +898,7 @@ section{
 .shopping-cart .fa-edit{
    height: 4.5rem;
    border-radius: .5rem;
-   background-color: var(--orange);
+   background-color: var(--red);
    width: 5rem;
    font-size: 2rem;
    color:var(--white);
