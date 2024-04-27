@@ -19,18 +19,34 @@ if(isset($_SESSION['user_id'])){
 
 ?>
 <?php
+echo
 
-
-
-$checkingifordersplaced=$conn->prepare("SELECT orders.`user_id` FROM  `users`,`orders` WHERE users.id=orders.user_id and users.id=?");
+$ispaymentcompleted=FALSE;
+$checkingifordersplaced=$conn->prepare("SELECT * FROM  `users`,`orders` WHERE users.id=orders.user_id and users.id=?");
 $checkingifordersplaced->execute([$user_id]);
+while($fetch_orderss = $checkingifordersplaced->fetch(PDO::FETCH_ASSOC)){
+   if($fetch_orderss['payment_status']!='Pending'){
+      if($fetch_orderss['payment_status']!='pending'){
+      $ispaymentcompleted=TRUE;
+      }
+   }
+
+}
 
 
 if(isset($_SESSION['user_id'])){
 
 
 if($checkingifordersplaced->rowcount()>0){
-   $AllowReviewmsg="Submit a review";
+
+   if($ispaymentcompleted!=True){
+      $AllowReviewmsg="Payment Pending";
+
+   }else{
+      $AllowReviewmsg="Submit a review";
+   }
+
+   
 
    if(isset($_POST["submit"])){
       if($checkingifordersplaced->rowcount()>0){
@@ -193,9 +209,19 @@ if(!isset($_SESSION['user_id'])){
    
 
    if($checkingifordersplaced->rowcount()>0){
+
+      if($ispaymentcompleted!=TRUE){
+         ?>
+            <a href="orders.php" class="btn"><?php echo $AllowReviewmsg?></a>
+      <?php
+
+
+      }else{
+
       ?>
             <span class= "btn" onclick="openpopup()"><?php echo $AllowReviewmsg?></span>
       <?php
+      }
 
    }else{
       ?>
@@ -218,7 +244,7 @@ if(!isset($_SESSION['user_id'])){
 
 <section class="reviews">
    
-   <h1 class="heading" style="margin-bottom:-5px">Client's Reviews.</h1>
+   <h1 class="heading" style="margin-bottom:-5px;  transform: scale(0.9);">Client's Reviews.</h1>
 
 
    
@@ -255,7 +281,7 @@ if(!isset($_SESSION['user_id'])){
 
 
               
-               <div id="number">
+               <div id="number" style="text-shadow: 2px 2px 5px gold;">
                    
                </div>
 
@@ -276,7 +302,7 @@ if(!isset($_SESSION['user_id'])){
 
    <div class="swiper reviews-slider" style="margin-top: 150px;">
 
-   <div class="swiper-wrapper">
+   <div class="swiper-wrapper" >
 
 
    <?php
@@ -286,7 +312,7 @@ if(!isset($_SESSION['user_id'])){
       if($select_reviews->rowCount() > 0){
          while($fetch_reviews = $select_reviews->fetch(PDO::FETCH_ASSOC)){   
    ?>
-      <div class="swiper-slide slide">
+      <div class="swiper-slide slide" style="box-shadow: 10px 10px 10px;">
          <img   src="images\default.png" style="width: 70px; height: 50px; object-fit: cover;">
          <p><span><?= $fetch_reviews['comment'];?></span></p>
          <span class="stars" data-rating="<?= $fetch_reviews['rating'];?>" data-num-stars="5" ></span>
