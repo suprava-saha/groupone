@@ -75,7 +75,7 @@ if(isset($_SESSION['user_id'])){
 
    <?php
       if($user_id == ''){
-         echo '<p class="empty">Login to see your current orders</p>';
+         echo '<p class="empty">Login to see your current test drive requests</p>';
       }else{
          $select_testdrives = $conn->prepare("SELECT * FROM `test_drive` WHERE user_id = ?");
          $select_testdrives->execute([$user_id]);
